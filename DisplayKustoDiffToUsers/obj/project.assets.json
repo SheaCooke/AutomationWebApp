@@ -51,10 +51,25 @@
           "lib/netstandard2.0/Azure.Identity.dll": {}
         }
       },
-      "Azure.Security.KeyVault.Secrets/4.0.1": {
+      "Azure.Security.KeyVault.Certificates/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Azure.Core": "1.0.1",
+          "Azure.Core": "1.0.2",
+          "System.Memory": "4.5.3",
+          "System.Text.Json": "4.6.0",
+          "System.Threading.Tasks.Extensions": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Security.KeyVault.Certificates.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Security.KeyVault.Certificates.dll": {}
+        }
+      },
+      "Azure.Security.KeyVault.Secrets/4.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.0.2",
           "System.Memory": "4.5.3",
           "System.Text.Json": "4.6.0",
           "System.Threading.Tasks.Extensions": "4.5.2"
@@ -118,6 +133,45 @@
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Queues.dll": {}
         }
+      },
+      "DiffPlex/1.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/DiffPlex.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DiffPlex.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.20": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Microsoft.AspNetCore.Mvc.Razor.Extensions/3.1.25": {
         "type": "package",
@@ -540,6 +594,23 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/Microsoft.Identity.Client.Extensions.Msal.dll": {}
+        }
+      },
+      "Microsoft.Identity.Web/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Identity": "1.1.1",
+          "Azure.Security.KeyVault.Certificates": "4.0.2",
+          "Azure.Security.KeyVault.Secrets": "4.0.3",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.1",
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.1",
+          "Microsoft.Identity.Client": "4.18.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Identity.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Identity.Web.dll": {}
         }
       },
       "Microsoft.IdentityModel.JsonWebTokens/5.6.0": {
@@ -1034,16 +1105,32 @@
         "pkgicon.png"
       ]
     },
-    "Azure.Security.KeyVault.Secrets/4.0.1": {
-      "sha512": "/6tKn6aMYGsaiFgdGmWX14V8yupFGqMxIGK1nD3D83cZY032VunmaP8wkDDNy3YUWM9UAqpejwQsgFdR/ftjbQ==",
+    "Azure.Security.KeyVault.Certificates/4.0.2": {
+      "sha512": "2lmDMczENN+8U3wa9gVMv7drIP/4DXnqQwCW0NkzA8EWx/1TuOExnztCdcyasInQFqcLBluIHzI4MW7j6z+9gQ==",
       "type": "package",
-      "path": "azure.security.keyvault.secrets/4.0.1",
+      "path": "azure.security.keyvault.certificates/4.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.security.keyvault.secrets.4.0.1.nupkg.sha512",
+        "azure.security.keyvault.certificates.4.0.2.nupkg.sha512",
+        "azure.security.keyvault.certificates.nuspec",
+        "lib/netstandard2.0/Azure.Security.KeyVault.Certificates.dll",
+        "lib/netstandard2.0/Azure.Security.KeyVault.Certificates.xml",
+        "pkgicon.png"
+      ]
+    },
+    "Azure.Security.KeyVault.Secrets/4.0.3": {
+      "sha512": "Qkz3RY8Kvm+FfxAiG/DmuXeupi+ne9ggdzosEq88Gs+LpCWohMkin5RKIVHsUkpJbnTaAk4Ej6QE8TiQ2UiPUA==",
+      "type": "package",
+      "path": "azure.security.keyvault.secrets/4.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.security.keyvault.secrets.4.0.3.nupkg.sha512",
         "azure.security.keyvault.secrets.nuspec",
         "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll",
         "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.xml",
@@ -1112,6 +1199,58 @@
         "lib/netstandard2.0/Azure.Storage.Queues.dll",
         "lib/netstandard2.0/Azure.Storage.Queues.xml",
         "pkgicon.png"
+      ]
+    },
+    "DiffPlex/1.7.1": {
+      "sha512": "a0fSO2p8ykrcfzgG0sjpZAMZPthXXz4l6UIVuM9uyIYIh5yga4sq3aydSGt6n+MkdSBKvMurjjaKnxIqZtfG1g==",
+      "type": "package",
+      "path": "diffplex/1.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "diffplex.1.7.1.nupkg.sha512",
+        "diffplex.nuspec",
+        "diffplex_icon.png",
+        "lib/net35/DiffPlex.dll",
+        "lib/net35/DiffPlex.xml",
+        "lib/net40/DiffPlex.dll",
+        "lib/net40/DiffPlex.xml",
+        "lib/net6.0/DiffPlex.dll",
+        "lib/net6.0/DiffPlex.xml",
+        "lib/netstandard1.0/DiffPlex.dll",
+        "lib/netstandard1.0/DiffPlex.xml",
+        "lib/netstandard2.0/DiffPlex.dll",
+        "lib/netstandard2.0/DiffPlex.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.1": {
+      "sha512": "m7uchb4whAlqpvdARfjmUJtdHLvmVwxiy7dcEYp3OqSP7OXUK7vL4m99YRAEFZYtzq+WQgCn7Yk1Mb5xqBtXEQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.20": {
+      "sha512": "FEOK0PqFfFtuahs78VDGWqutK2Z3Tr0zfzFoms9b2Wx5wTGzKSQBf3EZyDOf99L6rsAnzdfH3AtK/xlfr4cpOA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.openidconnect/3.1.20",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.xml",
+        "microsoft.aspnetcore.authentication.openidconnect.3.1.20.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.openidconnect.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Mvc.Razor.Extensions/3.1.25": {
@@ -1650,6 +1789,22 @@
         "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.xml",
         "microsoft.identity.client.extensions.msal.2.18.9.nupkg.sha512",
         "microsoft.identity.client.extensions.msal.nuspec"
+      ]
+    },
+    "Microsoft.Identity.Web/1.0.0": {
+      "sha512": "YXk00AHpGO5wsYBtLQ1x4AOrzReREMHjkqAYAoemJWlCLLS1+s4bb1qUHHURqoGGASzlPJ75fzH0BeXog1hHAg==",
+      "type": "package",
+      "path": "microsoft.identity.web/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net5.0/Microsoft.Identity.Web.dll",
+        "lib/net5.0/Microsoft.Identity.Web.xml",
+        "lib/netcoreapp3.1/Microsoft.Identity.Web.dll",
+        "lib/netcoreapp3.1/Microsoft.Identity.Web.xml",
+        "microsoft.identity.web.1.0.0.nupkg.sha512",
+        "microsoft.identity.web.nuspec"
       ]
     },
     "Microsoft.IdentityModel.JsonWebTokens/5.6.0": {
@@ -2649,9 +2804,12 @@
       "Azure.Storage.Blobs >= 12.12.0",
       "Azure.Storage.Files.Shares >= 12.1.0",
       "Azure.Storage.Queues >= 12.2.0",
+      "DiffPlex >= 1.7.1",
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 3.1.20",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 3.1.25",
       "Microsoft.Azure.Kusto.Data >= 9.4.1",
-      "Microsoft.Extensions.Azure >= 1.0.0"
+      "Microsoft.Extensions.Azure >= 1.0.0",
+      "Microsoft.Identity.Web >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2714,6 +2872,14 @@
             "target": "Package",
             "version": "[12.2.0, )"
           },
+          "DiffPlex": {
+            "target": "Package",
+            "version": "[1.7.1, )"
+          },
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+            "target": "Package",
+            "version": "[3.1.20, )"
+          },
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",
             "version": "[3.1.25, )"
@@ -2723,6 +2889,10 @@
             "version": "[9.4.1, )"
           },
           "Microsoft.Extensions.Azure": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "Microsoft.Identity.Web": {
             "target": "Package",
             "version": "[1.0.0, )"
           }
@@ -2745,7 +2915,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
       }
     }
   }

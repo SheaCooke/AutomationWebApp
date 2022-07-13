@@ -1,4 +1,6 @@
 ﻿using Azure.Storage.Blobs;
+using DiffPlex;
+using DiffPlex.DiffBuilder;
 using DisplayKustoDiffToUsers.Models;
 using Kusto.Data;
 using Kusto.Data.Common;
@@ -37,8 +39,7 @@ namespace DisplayKustoDiffToUsers.Controllers
         }
 
         public IActionResult Index()
-        {            
-
+        {      
             ReadBlobIntoHashSet();
 
             return View(SchemaFromDiffFile.schemaDiffCommands);
@@ -63,11 +64,6 @@ namespace DisplayKustoDiffToUsers.Controllers
 
             if (blobClient.Exists())
             {
-                /*string name = "";
-
-                string previousSchema = "";
-
-                string newSchema = "";*/
 
                 var response = blobClient.Download();
 
@@ -83,44 +79,7 @@ namespace DisplayKustoDiffToUsers.Controllers
 
                         if (line.StartsWith("------") && !firstElement)
                         {
-                            //string elementString = element.ToString();
-
                             AddNewKustoCommandObjectToCollection(element.ToString());
-
-                            /*(name, previousSchema, newSchema) = ParseDiffFile(elementString);
-
-                            string objectType = GetObjectType(elementString);
-
-                            string currentAgcSchema = "";
-
-                            string suggestedTranslation = "";
-
-                            try
-                            {
-                                currentAgcSchema = GetCurrentSchemaFromAGCCluster(name, objectType);
-                            }
-                            catch (Exception e)
-                            {
-                                currentAgcSchema = "Function/Table is not present in database.";
-                            }
-
-                            //create suggested translation for functions
-                            if (objectType.Equals("function"))
-                            {
-                                suggestedTranslation = TranslateFunctionBody(newSchema);
-                            }
-                            else
-                            {
-                                suggestedTranslation = "N/A";
-                            }
-
-
-                            if (SchemaFromDiffFile.schemaDiffCommands.FirstOrDefault(x => x.KustoObjectName.Equals(name)) == null)
-                            {
-                                KustoCommandModel kcm = new KustoCommandModel(name, previousSchema, newSchema, suggestedTranslation, currentAgcSchema);
-
-                                SchemaFromDiffFile.schemaDiffCommands.Add(kcm);
-                            }*/
 
                             element.Clear();
                         }
@@ -135,46 +94,6 @@ namespace DisplayKustoDiffToUsers.Controllers
                     if (element.Length > 0)
                     {
                         AddNewKustoCommandObjectToCollection(element.ToString());
-
-                        /*(name, previousSchema, newSchema) = ParseDiffFile(element.ToString());
-
-                        string elementString = element.ToString();
-
-                        string objectType = GetObjectType(elementString);
-
-                        string currentAgcSchema = "";
-
-                        string suggestedTranslation = "";
-
-                        
-
-                        try
-                        {
-                            currentAgcSchema = GetCurrentSchemaFromAGCCluster(name, objectType);
-                        }
-                        catch (Exception e)
-                        {
-                            currentAgcSchema = "Function/Table is not present in database.";
-                        }
-
-                        if (objectType.Equals("function"))
-                        {
-                            suggestedTranslation = TranslateFunctionBody(newSchema);
-                        }
-                        else
-                        {
-                            suggestedTranslation = "N/A";
-                        }
-
-
-                        if (SchemaFromDiffFile.schemaDiffCommands.FirstOrDefault(x => x.KustoObjectName.Equals(name)) == null)
-                        {
-                            KustoCommandModel kcm = new KustoCommandModel(name, previousSchema, newSchema, suggestedTranslation, currentAgcSchema);
-
-                            SchemaFromDiffFile.schemaDiffCommands.Add(kcm);
-                        }*/
-
-
                     }
                 }
 
@@ -269,9 +188,7 @@ namespace DisplayKustoDiffToUsers.Controllers
                     client.ExecuteControlCommand(command);
                 }
 
-
                 SchemaFromDiffFile.schemaDiffCommands.FirstOrDefault(x => x.KustoObjectName.Equals(KustoObjectName)).CommandSentSuccesfully = true;
-
             }
             catch (Exception e)
             {
@@ -279,7 +196,6 @@ namespace DisplayKustoDiffToUsers.Controllers
             }
 
             return Redirect("/Home/Index");
-
         }
 
 
@@ -352,7 +268,6 @@ namespace DisplayKustoDiffToUsers.Controllers
         [Route("Home/DisplayLargeSchemaInNewTab/{objectName}/{value}")]
         public IActionResult DisplayLargeSchemaInNewTab([FromRoute] string objectName, [FromRoute]int value)
         {
-
             string schema = "";
 
             switch(value)
@@ -367,6 +282,8 @@ namespace DisplayKustoDiffToUsers.Controllers
                     schema = SchemaFromDiffFile.schemaDiffCommands.FirstOrDefault(x => x.KustoObjectName.Equals(objectName)).CurrentAGCSchema;
                     break;
             }
+
+            schema = TranslateFunctionBody(schema);
 
             (string, int) res = (schema, value);
 
@@ -396,11 +313,15 @@ namespace DisplayKustoDiffToUsers.Controllers
         {
             StringBuilder sb = new StringBuilder(funcBody);
 
-            foreach(KeyValuePair<string,string> kvp in TranslationDictionaries.USSecTranslationRules) //TODO: find way to get the current cloud 
+            string yellowHtmlPrefix = "<mark>";//TODO: need to use @Html.Raw(variableName) in the view to get html tags to render 
+
+            string htmpPostfix = "</mark>";
+
+            foreach(KeyValuePair<string,string> kvp in TranslationDictionaries.USSecTranslationRules) 
             {
                if (funcBody.Contains(kvp.Key))
                 {
-                    sb.Replace(kvp.Key, kvp.Value);
+                    sb.Replace(kvp.Key, yellowHtmlPrefix + kvp.Value + htmpPostfix);
                 }
             }
 
@@ -452,6 +373,31 @@ namespace DisplayKustoDiffToUsers.Controllers
 
                 SchemaFromDiffFile.schemaDiffCommands.Add(kcm);
             }
+        }
+
+        public IActionResult DisplayTranslationRules()
+        {
+            (Dictionary<string, string>, Dictionary<string, string>) translationDictionaries = (TranslationDictionaries.USSecTranslationRules, TranslationDictionaries.USNatTranslation);
+
+            return View(translationDictionaries);
+        }
+
+        [Route("Home/ViewHilightedDifferences/{objectName}")]
+        public IActionResult ViewHilightedDifferences([FromRoute] string objectName)
+        {
+            /*string oldText = "Some old text!!!";
+
+            string newText = "Some new Test";*/
+
+            string oldText = SchemaFromDiffFile.schemaDiffCommands.Where(x => x.KustoObjectName == objectName).Select(x => x.PreviousPublicSchema).FirstOrDefault();
+
+            string newText = SchemaFromDiffFile.schemaDiffCommands.Where(x => x.KustoObjectName == objectName).Select(x => x.UpdatedPublicSchema).FirstOrDefault();
+
+            var diffBuilder = new SideBySideDiffBuilder();
+
+            var diff = diffBuilder.BuildDiffModel(oldText ?? string.Empty, newText ?? string.Empty);
+
+            return View(diff);
         }
     }
 }

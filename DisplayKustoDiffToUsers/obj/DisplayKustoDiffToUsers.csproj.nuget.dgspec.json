@@ -61,6 +61,14 @@
               "target": "Package",
               "version": "[12.2.0, )"
             },
+            "DiffPlex": {
+              "target": "Package",
+              "version": "[1.7.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[3.1.20, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[3.1.25, )"
@@ -70,6 +78,10 @@
               "version": "[9.4.1, )"
             },
             "Microsoft.Extensions.Azure": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.Identity.Web": {
               "target": "Package",
               "version": "[1.0.0, )"
             }
@@ -92,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     }

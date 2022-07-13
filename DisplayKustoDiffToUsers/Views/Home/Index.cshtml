@@ -2,85 +2,85 @@
 @using DisplayKustoDiffToUsers.Models;
 @model HashSet<KustoCommandModel>;
 
-
-
-
 <div class="box-shadow">
-        <h3>Test Cluster:</h3>
-        <a asp-controller="Home" asp-action="MoveFileToArchive" asp-route-id ="TestCluster">Move File To Archive</a>
-        <table class="table" style="width:100%">
-            <thead>
+    <h3>Test Cluster:</h3>
+    <a asp-controller="Home" asp-action="MoveFileToArchive" asp-route-id="TestCluster">Move File To Archive</a>
+    <table class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col" style="background-color: #DCDCDC">Object Name</th>
+                <th scope="col">Previous Public Version</th>
+                <th scope="col">New Public Version<br />(Command that will be sent)</th>
+                <th scope="col">Suggested Translation</th>
+                <th scope="col">Current AGC Version</th>
+                <th scope="col">Command Options</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
                 <tr>
-                    <th scope="col" style="background-color: #DCDCDC">Object Name</th>
-                    <th scope="col">Previous Public Version</th>
-                    <th scope="col">New Public Version<br />(Command that will be sent)</th>
-                    <th scope="col">Suggested Translation</th>
-                    <th scope="col">Current AGC Version</th>
-                    <th scope="col">Command Options</th>
-                    <th scope="col">Status</th>
+
+                    <td>@i.KustoObjectName</td>
+
+
+                    @if (@i.PreviousPublicSchema.Length > 400)//previous schema
+                    {
+                        <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/1" target="_blank">ViewSchema</a></td>
+                    }
+                    else
+                    {
+                        <td>@i.PreviousPublicSchema</td>
+                    }
+
+                    @if (@i.UpdatedPublicSchema.Length > 400)//new schema
+                    {
+                        <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/2" target="_blank">ViewSchema</a></td>
+                    }
+                    else
+                    {
+                        <td>@i.UpdatedPublicSchema</td>
+                    }
+
+                    @if (@i.SuggestedTranslation.Length > 400) //suggested TODO: change below to return the translated version
+                    {
+                        <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/2" target="_blank">ViewSchema</a></td>
+                    }
+                    else
+                    {
+                        <td>@Html.Raw(@i.SuggestedTranslation)</td>
+                    }
+
+                    @if (@i.CurrentAGCSchema.Length > 400) //current AGC
+                    {
+                        <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/3" target="_blank">ViewSchema</a></td>
+                    }
+                    else
+                    {
+                        <td>@i.CurrentAGCSchema</td>
+                    }
+                    <td>
+                        <a asp-controller="Home" asp-action="SendCommandToCluster" asp-route-id="@i.KustoObjectName" class="button btn-primary">SendCommand</a><br />
+                        <a asp-controller="Home" asp-action="SendCommandToCluster" asp-route-id="@i.KustoObjectName" class="button btn-primary">SendTranslatedCommand</a>
+                        <a asp-controller="Home" asp-action="ViewHilightedDifferences" asp-route-id="@i.KustoObjectName" class="button btn-primary">View Diff</a>
+
+                    </td>
+
+
+                    @if (@i.CommandSentSuccesfully)
+                    {
+                        <td>Successful</td>
+                    }
+                    else
+                    {
+                        <td> Not-Sent </td>
+
+                    }
+
                 </tr>
-            </thead>
-            <tbody>
-                 @foreach (var i in Model)
-                {                   
-                        <tr>
+            }
+        </tbody>
 
-                            <td>@i.KustoObjectName</td>
-
-                            
-                            @if (@i.PreviousPublicSchema.Length > 400)//previous schema
-                            {
-                                 <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/1"  target="_blank">ViewSchema</a></td>
-                            }
-                            else
-                            {
-                                <td>@i.PreviousPublicSchema</td>
-                            }
-                            
-                            @if (@i.UpdatedPublicSchema.Length > 400)//new schema 
-                            {
-                                <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/2"  target="_blank">ViewSchema</a></td>
-                            }
-                            else
-                            {
-                                <td>@i.UpdatedPublicSchema</td>
-                            }
-                            
-                            @if (@i.SuggestedTranslation.Length > 400) //suggested TODO: change below to return the translated version 
-                            {
-                                <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/2"  target="_blank">ViewSchema</a></td>
-                            }
-                            else
-                            {
-                                <td>@i.SuggestedTranslation</td>
-                            }
-                                                        
-                            @if (@i.CurrentAGCSchema.Length > 400) //current AGC
-                            {
-                                <td><a asp-controller="Home" asp-action="DisplayLargeSchemaInNewTab" asp-route-id="@i.KustoObjectName/3"  target="_blank">ViewSchema</a></td>
-                            }
-                            else
-                            {
-                                <td>@i.CurrentAGCSchema</td>
-                            }
-                            <td>
-                                <a asp-controller="Home" asp-action="SendCommandToCluster" asp-route-id ="@i.KustoObjectName" class="button btn-primary">SendCommand</a><br />
-                                <a asp-controller="Home" asp-action="SendCommandToCluster" asp-route-id ="@i.KustoObjectName" class="button btn-primary">SendTranslatedCommand</a>
-                            </td>
-                            
-
-                            @if(@i.CommandSentSuccesfully)
-                            {
-                                <td>Successful</td>
-                            }
-                            else
-                            {
-                                <td> Not-Sent </td>                               
-                            }
-                            
-                        </tr>
-                }
-            </tbody>
-
-        </table>
-    </div>
+    </table>
+</div>

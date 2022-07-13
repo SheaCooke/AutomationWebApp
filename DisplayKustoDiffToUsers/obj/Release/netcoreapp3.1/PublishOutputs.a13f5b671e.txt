@@ -1,4 +1,5 @@
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\DisplayKustoDiffToUsers.exe
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\diff.css
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\site.js
@@ -44,11 +45,15 @@ C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffTo
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Core.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Identity.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Security.KeyVault.Certificates.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Security.KeyVault.Secrets.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Storage.Blobs.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Storage.Common.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Storage.Files.Shares.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Storage.Queues.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\DiffPlex.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
@@ -63,6 +68,7 @@ C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffTo
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Identity.Client.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Identity.Web.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll

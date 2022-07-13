@@ -391,3 +391,14 @@ C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffTo
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\Razor\Views\Home\DisplayLargeSchemaInNewTab.cshtml.g.cs
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\Razor\Views\Home\DisplayTranslationRules.cshtml.g.cs
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\staticwebassets\DisplayKustoDiffToUsers.StaticWebAssets.xml
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\scopedcss\bundle\DisplayKustoDiffToUsers.styles.css
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\Azure.Security.KeyVault.Certificates.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\Microsoft.Identity.Web.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\bin\Release\netcoreapp3.1\DiffPlex.dll
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\Razor\Views\Home\DiffPane.cshtml.g.cs
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\Razor\Views\Home\DiffLine.cshtml.g.cs
+C:\Users\sheacooke\Desktop\AppService\DisplayKustoDiffToUsers\DisplayKustoDiffToUsers\obj\Release\netcoreapp3.1\Razor\Views\Home\ViewHilightedDifferences.cshtml.g.cs

@@ -12,6 +12,10 @@ using Microsoft.Extensions.Azure;
 using Azure.Storage.Queues;
 using Azure.Storage.Blobs;
 using Azure.Core.Extensions;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace DisplayKustoDiffToUsers
 {
@@ -24,9 +28,23 @@ namespace DisplayKustoDiffToUsers
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // Add sign-in with Microsoft
+            /*services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+              .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
+
+            services.AddControllersWithViews(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });*/
+
             services.AddControllersWithViews();
             services.AddAzureClients(builder =>
             {
@@ -53,6 +71,7 @@ namespace DisplayKustoDiffToUsers
 
             app.UseRouting();
 
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,0 +1,21 @@
+﻿@model (Dictionary<string,string>,Dictionary<string,string>)
+
+<h3>Translation Rules</h3>
+
+<br />
+
+<div>
+<h4>USSec: </h4>
+@foreach (KeyValuePair<string,string> kvp in @Model.Item1)
+{
+    <p>@kvp.Key => @kvp.Value</p>
+}
+</div>
+
+<div>
+<h4>USNat: </h4>
+@foreach (KeyValuePair<string,string> kvp in @Model.Item2)
+{
+    <p>@kvp.Key => @kvp.Value</p>
+}
+</div>
